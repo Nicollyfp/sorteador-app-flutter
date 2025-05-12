@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var numeroSorteado = 0;
+  var penultimoSorteio = 0;
   var qtdSorteios = 0;
 
   @override
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
             style: GoogleFonts.roboto(fontSize: 100),
           ),
           Text(
-            "O último número sorteado foi: __",
+            "O último número sorteado foi: $penultimoSorteio",
             style: GoogleFonts.roboto(fontSize: 50),
           ),
         ],
@@ -43,6 +44,7 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           setState(() {
             qtdSorteios++;
+            penultimoSorteio = numeroSorteado;
             numeroSorteado = SorteadorService.sortearNumero();
           });
           debugPrint(numeroSorteado.toString());
