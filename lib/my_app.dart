@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'Pages/home_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,7 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: false, primarySwatch: Colors.pink),
+      theme: ThemeData(useMaterial3: false, 
+        primarySwatch: Colors.pink,
+        textTheme: GoogleFonts.pacificoTextTheme()),
       home: HomePage(),
     );
   }
