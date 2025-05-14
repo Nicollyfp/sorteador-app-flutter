@@ -16,48 +16,64 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Meu Primeiro App Flutter", style: GoogleFonts.pacifico()),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       // ignore: avoid_unnecessary_containers
-      body: Container( color: Colors.amber[100],
+
+      body: Container(
+
+        color: Colors.amber[100],
         width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
+
         child: Column(
+
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
           children: [
             Text(
               "Tivemos até agr $qtdSorteios sorteios!!",
               style: GoogleFonts.roboto(fontSize: 70),
             ),
+
             Text(
               numeroSorteado.toString(),
               style: GoogleFonts.roboto(fontSize: 50),
             ),
+
             Text(
               "O último número sorteado foi: $penultimoSorteio",
               style: GoogleFonts.roboto(fontSize: 50),
             ),
+
             Row( 
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
               children: [
                 Expanded(child: Container(color: Colors.red, child: Text("10", style: GoogleFonts.roboto(fontSize: 50),))),
                 Expanded(child: Container(color: Colors.white, child: Center(child: Text("20", style: GoogleFonts.roboto(fontSize: 50))))),
-                Expanded(child: Container(color: Colors.blue, child: Text("30", style: GoogleFonts.roboto(fontSize: 50))))],)
+                Expanded(child: Container(color: Colors.blue, child: Text("30", style: GoogleFonts.roboto(fontSize: 50))))
+              ],
+            )
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.monetization_on_outlined),
+
         onPressed: () {
           setState(() {
             qtdSorteios++;
             penultimoSorteio = numeroSorteado;
             numeroSorteado = SorteadorService.sortearNumero();
           });
+
           debugPrint(numeroSorteado.toString());
         },
       ),
