@@ -21,23 +21,34 @@ class _HomePageState extends State<HomePage> {
         title: Text("Meu Primeiro App Flutter", style: GoogleFonts.pacifico()),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "Tivemos até agr $qtdSorteios sorteios!!",
-            style: GoogleFonts.roboto(fontSize: 70),
-          ),
-          Text(
-            numeroSorteado.toString(),
-            style: GoogleFonts.roboto(fontSize: 100),
-          ),
-          Text(
-            "O último número sorteado foi: $penultimoSorteio",
-            style: GoogleFonts.roboto(fontSize: 50),
-          ),
-        ],
+      // ignore: avoid_unnecessary_containers
+      body: Container( color: Colors.amber[100],
+        width: double.infinity,
+        margin: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Tivemos até agr $qtdSorteios sorteios!!",
+              style: GoogleFonts.roboto(fontSize: 70),
+            ),
+            Text(
+              numeroSorteado.toString(),
+              style: GoogleFonts.roboto(fontSize: 50),
+            ),
+            Text(
+              "O último número sorteado foi: $penultimoSorteio",
+              style: GoogleFonts.roboto(fontSize: 50),
+            ),
+            Row( 
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(child: Container(color: Colors.red, child: Text("10", style: GoogleFonts.roboto(fontSize: 50),))),
+                Expanded(child: Container(color: Colors.white, child: Center(child: Text("20", style: GoogleFonts.roboto(fontSize: 50))))),
+                Expanded(child: Container(color: Colors.blue, child: Text("30", style: GoogleFonts.roboto(fontSize: 50))))],)
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.monetization_on_outlined),
